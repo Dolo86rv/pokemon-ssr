@@ -10,11 +10,18 @@
 }
 
 <div class="flex justify-between">
-  <button (click)="loadPokemons(-1)" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600">
+  <button
+    [disabled]="currentPage() === 1"
+    [routerLink]="['/pokemons/page', currentPage()! - 1]"
+    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600"
+  >
     Anteriores
   </button>
 
-  <button (click)="loadPokemons(+1)" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600">
+  <button
+    [routerLink]="['/pokemons/page', currentPage()! + 1]"
+    class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-600"
+  >
     Siguientes
   </button>
 
